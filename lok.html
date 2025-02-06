@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Threat Scanner</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff; /* Base text color */
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .scanner {
+            width: 80%;
+            max-width: 600px;
+            background-color: #111;
+            border: 1px solid #f00; /* Red border */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); /* Red glow */
+            position: relative;
+        }
+        .scanner::before {
+            content: ">";
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            color: #f00; /* Red prompt */
+        }
+        .output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+        .blinking-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #f00; /* Red cursor */
+            animation: blink 1s steps(2, start) infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #222;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .progress-bar-inner {
+            width: 0;
+            height: 100%;
+            background-color: #f00; /* Red progress bar */
+            animation: progress 35s linear forwards;
+        }
+        @keyframes progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        /* Danger highlights */
+        .threat {
+            color: #f00 !important; /* Red for threats */
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        .leaked {
+            color: #ff0 !important; /* Yellow for leaked keywords */
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanner">
+        <div class="output" id="output">
+            <span style="color: #f00">Initializing Phone Threat Scanner...</span>
+            <br><br>
+            Scanning device storage for threats...
+            <br><br>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-bar-inner"></div>
+        </div>
+        <br>
+        <div class="blinking-cursor"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        const messages = [
+            "Scanning system files...",
+            "Analyzing installed apps...",
+            "Checking network activity...",
+            "Inspecting storage for malware...",
+            "Reviewing permissions...",
+            "Verifying app signatures...",
+            "Scanning for suspicious processes...",
+            "Checking for root access...",
+            "Analyzing recent downloads...",
+            "Finalizing scan results..."
+        ];
+
+        const threats = [
+            { time: 7000, message: "Threat detected: Suspicious app '<span class='threat'>Xploit.apk</span>' found." },
+            { time: 14000, message: "Threat detected: <span class='threat'>Unauthorized root access</span> detected." },
+            { time: 21000, message: "Threat detected: Malware '<span class='threat'>Trojan.BadActor</span>' identified." }
+        ];
+
+        let currentMessage = 0;
+
+        function simulateScan() {
+            const interval = setInterval(() => {
+                if (currentMessage < messages.length) {
+                    output.innerHTML += `> ${messages[currentMessage]}<br><br>`;
+                    currentMessage++;
+                }
+            }, 3500);
+
+            threats.forEach(threat => {
+                setTimeout(() => {
+                    output.innerHTML += `<span class="threat">> ${threat.message}</span><br><br>`;
+                }, threat.time);
+            });
+
+            setTimeout(() => {
+                clearInterval(interval);
+                output.innerHTML += `
+                    <span class="threat">> Scan complete.</span>
+                    <br><br>
+                    <span class="threat">> 3 CRITICAL THREATS DETECTED.</span>
+                    <br><br>
+                    <span class="leaked">> Leaked keyword: "<span class='threat'>Xploit.apk</span>"</span>
+                    <br><br>
+                    <span class="threat">> . +60 19 711 1516 (30BTC BNT) 3.mp4 .</span>
+                    <br><br>
+                `;
+            }, 35000);
+        }
+
+        simulateScan();
+    </script>
+</body>
+</html>
