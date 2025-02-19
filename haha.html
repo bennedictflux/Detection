@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Integrity Verifier v4.0.7</title>
+    <style>
+        :root {
+            --hacker-green: #00ff00;
+            --terminal-bg: #000000;
+        }
+
+        body {
+            background: var(--terminal-bg);
+            color: var(--hacker-green);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            border: 3px solid var(--hacker-green);
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #001100;
+            box-shadow: 0 0 30px #00ff0055;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 0 0 15px var(--hacker-green);
+            margin-bottom: 30px;
+        }
+
+        #scanButton {
+            background: #002200;
+            color: var(--hacker-green);
+            border: 2px solid var(--hacker-green);
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #scanButton:hover {
+            background: #004400;
+            box-shadow: 0 0 15px #00ff0055;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #002200;
+            margin: 20px 0;
+            border: 1px solid var(--hacker-green);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff00, #009900);
+            width: 0%;
+            transition: width 1s linear;
+        }
+
+        #terminal {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #00ff0033;
+            margin: 20px 0;
+        }
+
+        .log-entry {
+            animation: logEntry 0.5s;
+            margin: 5px 0;
+        }
+
+        @keyframes logEntry {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .success-alert {
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>▓▒░ SYSTEM SECURITY VERIFICATION ░▒▓</h1>
+        
+        <button id="scanButton" onclick="startScan()">INITIATE FULL SYSTEM SCAN</button>
+
+        <div id="scanProgress" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="mainProgress"></div>
+            </div>
+            <div id="terminal"></div>
+        </div>
+
+        <div id="result" style="display: none;">
+            <div class="success-alert">
+                SYSTEM STATUS: CLEAN<br>
+                THREATS DETECTED: 0
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const processes = [
+            "Verifying boot sector integrity...",
+            "Scanning memory sectors...",
+            "Checking network protocols...",
+            "Analyzing system registry...",
+            "Validating cryptographic signatures...",
+            "Auditing user permissions...",
+            "Inspecting kernel modules...",
+            "Verifying file system hashes..."
+        ];
+
+        function log(message) {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            document.getElementById('terminal').appendChild(entry);
+            entry.scrollIntoView();
+        }
+
+        function startScan() {
+            const btn = document.getElementById('scanButton');
+            btn.disabled = true;
+            document.getElementById('scanProgress').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('terminal').innerHTML = '';
+
+            let progress = 0;
+            const progressBar = document.getElementById('mainProgress');
+            const scanInterval = setInterval(() => {
+                progress += 100 / 120;
+                progressBar.style.width = `${progress}%`;
+                log(processes[Math.floor(Math.random() * processes.length)]);
+            }, 1000);
+
+            setTimeout(() => {
+                clearInterval(scanInterval);
+                progressBar.style.width = '100%';
+                document.getElementById('result').style.display = 'block';
+                btn.disabled = false;
+                log("Full system scan completed successfully");
+                log("No malicious entities detected");
+            }, 120000);
+        }
+    </script>
+</body>
+</html>
