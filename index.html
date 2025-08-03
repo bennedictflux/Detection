@@ -3,40 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Device Detector</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            font-size: 24px;
-        }
-    </style>
-    <script>
-        function detectDevice() {
-            let userAgent = navigator.userAgent.toLowerCase();
-            let body = document.body;
-
-            if (/iphone/.test(userAgent)) {
-                // iPhone
-                body.style.backgroundColor = "green";
-                body.innerHTML = "<h1 style='color:white;'></h1>";
-            } else if (/samsung/.test(userAgent)) {
-                // Samsung
-                body.style.backgroundColor = "red";
-                body.innerHTML = "<h1 style='color:white;'></h1>";
-            } else if (/honor/.test(userAgent)) {
-                // Honor
-                body.style.backgroundColor = "green";
-                body.innerHTML = "<h1 style='color:white;'></h1>";
-            } else {
-                // Other Devices
-                body.style.backgroundColor = "gray";
-                body.innerHTML = "<h1 style='color:white;'>Unknown Device</h1>";
-            }
-        }
-    </script>
+    <title>KK88Car - Premium Car Audio Systems</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body onload="detectDevice()">
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>KK88<span>Car</span></h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#combos">Combo Packages</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="#cart" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Premium Car Audio Systems</h1>
+            <p>Transform your driving experience with KK88Car's high-quality radios, speakers, and combo packages</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#combos" class="btn btn-secondary">View Combos</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=400&fit=crop&crop=center" alt="Car Audio System">
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="featured-products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-radio"></i>
+                    </div>
+                    <h3>Car Radios</h3>
+                    <p>High-performance car radios with modern features</p>
+                    <a href="#radios" class="btn btn-outline">Explore Radios</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Speaker Systems</h3>
+                    <p>Crystal-clear sound with powerful speaker systems</p>
+                    <a href="#speakers" class="btn btn-outline">Explore Speakers</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Combo Packages</h3>
+                    <p>Complete audio solutions with unbeatable value</p>
+                    <a href="#combos" class="btn btn-outline">View Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Radios Section -->
+    <section id="radios" class="product-section">
+        <div class="container">
+            <h2>Car Radios</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=200&fit=crop" alt="KK88 Pro Radio">
+                    <div class="product-info">
+                        <h3>KK88 Pro Radio</h3>
+                        <p>7-inch touchscreen, Bluetooth, Android Auto</p>
+                        <div class="price">$299.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="kk88-pro-radio">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=300&h=200&fit=crop" alt="KK88 Elite Radio">
+                    <div class="product-info">
+                        <h3>KK88 Elite Radio</h3>
+                        <p>9-inch display, GPS navigation, Apple CarPlay</p>
+                        <div class="price">$399.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="kk88-elite-radio">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop" alt="KK88 Classic Radio">
+                    <div class="product-info">
+                        <h3>KK88 Classic Radio</h3>
+                        <p>Traditional design, AM/FM, CD player</p>
+                        <div class="price">$149.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="kk88-classic-radio">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaker Systems Section -->
+    <section id="speakers" class="product-section">
+        <div class="container">
+            <h2>Speaker Systems</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300&h=200&fit=crop" alt="KK88 Bass Pro Speakers">
+                    <div class="product-info">
+                        <h3>KK88 Bass Pro</h3>
+                        <p>6.5" component speakers, 150W power</p>
+                        <div class="price">$199.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="kk88-bass-pro">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop" alt="KK88 Thunder Speakers">
+                    <div class="product-info">
+                        <h3>KK88 Thunder</h3>
+                        <p>Subwoofer system, 300W power, deep bass</p>
+                        <div class="price">$349.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="kk88-thunder">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop" alt="KK88 Crystal Clear">
+                    <div class="product-info">
+                        <h3>KK88 Crystal Clear</h3>
+                        <p>Premium tweeters, crystal-clear highs</p>
+                        <div class="price">$129.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="kk88-crystal-clear">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Packages Section -->
+    <section id="combos" class="combo-section">
+        <div class="container">
+            <h2>Combo Packages</h2>
+            <p class="section-subtitle">Complete audio solutions with unbeatable value</p>
+            <div class="combo-grid">
+                <div class="combo-card featured">
+                    <div class="combo-badge">BEST VALUE</div>
+                    <h3>Ultimate Audio Package</h3>
+                    <div class="combo-items">
+                        <div class="combo-item">
+                            <i class="fas fa-radio"></i>
+                            <span>KK88 Elite Radio</span>
+                        </div>
+                        <div class="combo-item">
+                            <i class="fas fa-volume-up"></i>
+                            <span>KK88 Bass Pro Speakers</span>
+                        </div>
+                        <div class="combo-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Professional Installation</span>
+                        </div>
+                    </div>
+                    <div class="pricing">
+                        <div class="original-price">$699.97</div>
+                        <div class="combo-price">$549.99</div>
+                        <div class="savings">Save $149.98!</div>
+                    </div>
+                    <button class="btn btn-primary add-to-cart" data-product="ultimate-combo">Add to Cart</button>
+                </div>
+                <div class="combo-card">
+                    <h3>Starter Audio Package</h3>
+                    <div class="combo-items">
+                        <div class="combo-item">
+                            <i class="fas fa-radio"></i>
+                            <span>KK88 Classic Radio</span>
+                        </div>
+                        <div class="combo-item">
+                            <i class="fas fa-volume-up"></i>
+                            <span>KK88 Crystal Clear Speakers</span>
+                        </div>
+                    </div>
+                    <div class="pricing">
+                        <div class="original-price">$279.98</div>
+                        <div class="combo-price">$229.99</div>
+                        <div class="savings">Save $49.99!</div>
+                    </div>
+                    <button class="btn btn-primary add-to-cart" data-product="starter-combo">Add to Cart</button>
+                </div>
+                <div class="combo-card">
+                    <h3>Bass Lover Package</h3>
+                    <div class="combo-items">
+                        <div class="combo-item">
+                            <i class="fas fa-radio"></i>
+                            <span>KK88 Pro Radio</span>
+                        </div>
+                        <div class="combo-item">
+                            <i class="fas fa-volume-up"></i>
+                            <span>KK88 Thunder Subwoofer</span>
+                        </div>
+                    </div>
+                    <div class="pricing">
+                        <div class="original-price">$649.98</div>
+                        <div class="combo-price">$499.99</div>
+                        <div class="savings">Save $149.99!</div>
+                    </div>
+                    <button class="btn btn-primary add-to-cart" data-product="bass-combo">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About KK88Car</h2>
+                    <p>For over a decade, KK88Car has been the trusted name in premium car audio systems. We specialize in high-quality radios, speaker systems, and complete audio packages that transform your driving experience.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Premium Quality</h4>
+                                <p>All products tested for durability and performance</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <h4>Professional Installation</h4>
+                                <p>Expert installation services available</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Warranty Coverage</h4>
+                                <p>Comprehensive warranty on all products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&h=400&fit=crop" alt="Car Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Audio Street<br>Car City, CC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>(555) 888-8888</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@kk88car.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 9AM-7PM<br>Sat: 9AM-5PM<br>Sun: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KK88<span>Car</span></h3>
+                    <p>Premium car audio systems for the ultimate driving experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#radios">Car Radios</a></li>
+                        <li><a href="#speakers">Speaker Systems</a></li>
+                        <li><a href="#combos">Combo Packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Installation Guide</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for deals and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KK88Car. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <strong>Total: $<span id="cart-total">0.00</span></strong>
+            </div>
+            <button class="btn btn-primary checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
