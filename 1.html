@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 24px;
+}
+</style>
+
+<script>
+function isIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) 
+        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
+window.onload = function () {
+    if (isIOS()) {
+        document.body.style.backgroundColor = "green";
+        document.body.innerHTML = "";
+    } else {
+        document.body.style.backgroundColor = "red";
+        document.body.innerHTML = "";
+    }
+};
+</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
